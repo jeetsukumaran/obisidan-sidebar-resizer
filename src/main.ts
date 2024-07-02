@@ -69,23 +69,29 @@ export default class SidebarWidthPlugin extends Plugin {
             const currentWidth = sidebar.getBoundingClientRect().width;
             let newWidth: string;
 
+            let adjustmentPx = 0;
             if (adjustment.endsWith('%')) {
                 const percentage = parseFloat(adjustment);
-                const adjustmentPx = window.innerWidth * (percentage / 100);
-                newWidth = `${currentWidth + adjustmentPx}px`;
+                adjustmentPx = window.innerWidth * (percentage / 100);
             } else {
-                const adjustmentPx = parseFloat(adjustment);
-                newWidth = `${currentWidth + adjustmentPx}px`;
+                adjustmentPx = parseFloat(adjustment);
             }
-
-            (sidebar as HTMLElement).style.width = newWidth;
-
-            // Expand the sidebar if it is collapsed
-            if (newWidth !== '0px') {
-                if (side === 'left' && workspace.leftSplit.collapsed) {
-                    workspace.leftSplit.expand();
-                } else if (side === 'right' && workspace.rightSplit.collapsed) {
-                    workspace.rightSplit.expand();
+            if (adjustmentPx < 0 && currentWidth <= (adjustmentPx * -1)) {
+                if (side === 'left' && !workspace.leftSplit.collapsed) {
+                    workspace.leftSplit.collapse();
+                } else if (side === 'right' && !workspace.rightSplit.collapsed) {
+                    workspace.rightSplit.collapse();
+                }
+            } else {
+                newWidth = `${currentWidth + adjustmentPx}px`;
+                (sidebar as HTMLElement).style.width = newWidth;
+                // Expand the sidebar if it is collapsed
+                if (newWidth !== '0px') {
+                    if (side === 'left' && workspace.leftSplit.collapsed) {
+                        workspace.leftSplit.expand();
+                    } else if (side === 'right' && workspace.rightSplit.collapsed) {
+                        workspace.rightSplit.expand();
+                    }
                 }
             }
         }
