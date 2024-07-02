@@ -36,16 +36,16 @@ There are no hotkeys bound by default.
 The commands above can be bound to keys following your preferences through the normal Obsidian settings.
 Following are some examples or recommendations:
 
-| Command                                 | Keybinding         | Keybinding         |
-|-----------------------------------------|--------------------|--------------------|
-| Increase left sidebar width             | `Ctrl+]`           | `Ctrl+[`           |
-| Decrease left sidebar width             | `Ctrl+[`           | `Ctrl+Alt+[`       |
-| Toggle left sidebar (standard width)    | `Ctrl+Shift+[`     | `Ctrl+Shift+[`     |
-| Increase right sidebar width            | `Ctrl+Alt+]`       | `Ctrl+]`           |
-| Decrease right sidebar width            | `Ctrl+Alt+[`       | `Ctrl+Alt+]`       |
-| Toggle right sidebar (standard width)   | `Ctrl+Alt+Shift+]` | `Ctrl+Shift+]`     |
-| Expand both sidebars to standard widths | `Ctrl+Shift+\`     | `Ctrl+Alt+Shift+]` |
-| Collapse both sidebars                  | `Ctrl+Alt+Shift+\` | `Ctrl+Alt+Shift+[` |
+| Command                                 | Keybinding         |
+|-----------------------------------------|--------------------|
+| Increase left sidebar width             | `Ctrl+[`           |
+| Decrease left sidebar width             | `Ctrl+Alt+[`       |
+| Toggle left sidebar (standard width)    | `Ctrl+Shift+[`     |
+| Increase right sidebar width            | `Ctrl+]`           |
+| Decrease right sidebar width            | `Ctrl+Alt+]`       |
+| Toggle right sidebar (standard width)   | `Ctrl+Shift+]`     |
+| Expand both sidebars to standard widths | `Ctrl+Alt+Shift+]` |
+| Collapse both sidebars                  | `Ctrl+Alt+Shift+[` |
 
 
 ### Settings
