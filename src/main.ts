@@ -12,49 +12,49 @@ export default class SidebarWidthPlugin extends Plugin {
         this.addSettingTab(new SidebarWidthSettingTab(this.app, this));
 
         this.addCommand({
-            id: 'increase-left-sidebar-width',
+            id: 'resizer-increase-left-sidebar-width',
             name: 'Increase left sidebar width',
             callback: () => this.adjustSidebarWidth('.workspace-split.mod-left-split', this.settings.increment),
         });
 
         this.addCommand({
-            id: 'decrease-left-sidebar-width',
+            id: 'resizer-decrease-left-sidebar-width',
             name: 'Decrease left sidebar width',
             callback: () => this.adjustSidebarWidth('.workspace-split.mod-left-split', `-${this.settings.increment}`),
         });
 
         this.addCommand({
-            id: 'increase-right-sidebar-width',
+            id: 'resizer-increase-right-sidebar-width',
             name: 'Increase right sidebar width',
             callback: () => this.adjustSidebarWidth('.workspace-split.mod-right-split', this.settings.increment),
         });
 
         this.addCommand({
-            id: 'decrease-right-sidebar-width',
+            id: 'resizer-decrease-right-sidebar-width',
             name: 'Decrease right sidebar width',
             callback: () => this.adjustSidebarWidth('.workspace-split.mod-right-split', `-${this.settings.increment}`),
         });
 
         this.addCommand({
-            id: 'toggle-left-sidebar-default',
+            id: 'resizer-toggle-left-sidebar-default',
             name: 'Toggle left sidebar (standard width)',
             callback: () => this.toggleSidebarWidth('.workspace-split.mod-left-split', this.settings.leftSidebarStandardWidth),
         });
 
         this.addCommand({
-            id: 'toggle-right-sidebar-default',
+            id: 'resizer-toggle-right-sidebar-default',
             name: 'Toggle right sidebar (standard width)',
             callback: () => this.toggleSidebarWidth('.workspace-split.mod-right-split', this.settings.rightSidebarStandardWidth),
         });
 
         this.addCommand({
-            id: 'set-both-sidebar-widths',
+            id: 'resizer-expand-both-sidebar-widths',
             name: 'Expand both sidebars to standard widths',
             callback: () => this.setBothSidebarWidths(this.settings.leftSidebarStandardWidth, this.settings.rightSidebarStandardWidth),
         });
 
         this.addCommand({
-            id: 'set-both-sidebar-widths',
+            id: 'resizer-collapse-both-sidebar-widths',
             name: 'Collapse both sidebars',
             callback: () => this.setBothSidebarWidths("0", "0"),
         });
