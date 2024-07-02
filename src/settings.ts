@@ -27,7 +27,7 @@ export class SidebarWidthSettingTab extends PluginSettingTab {
         const { containerEl } = this;
 
         containerEl.empty();
-        containerEl.createEl('h2', { text: 'Sidebar Resizer Settings' });
+        new Setting(containerEl).setName('Settings').setHeading();
 
         new Setting(containerEl)
             .setName('Width increment')
