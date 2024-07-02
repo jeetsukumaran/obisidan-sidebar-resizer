@@ -1,0 +1,13 @@
+{
+	"id": "sidebar-resizer",
+	"name": "Sidebar Resizer",
+	"version": "0.0.1",
+	"description": "Adjust the sidebar sizes easily.",
+	"minAppVersion": "1.4.14",
+	"author": "Jeet Sukumaran",
+	"authorUrl": "https://github/jeetsukumaran/obsidian-sidebar-resizer",
+	"fundingUrl": {
+	    "Buy Me a Coffee": "https://www.buymeacoffee.com/jeetsukumaran"
+    },
+	"isDesktopOnly": false
+}
