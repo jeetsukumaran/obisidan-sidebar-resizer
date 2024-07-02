@@ -102,28 +102,26 @@ export default class SidebarWidthPlugin extends Plugin {
         const workspace = this.app.workspace;
 
         if (sidebar) {
-            let newWidth: string;
+            let newWidth: string = "100px";
             if (defaultWidth.endsWith('%')) {
                 const percentage = parseFloat(defaultWidth);
                 newWidth = `${window.innerWidth * (percentage / 100)}px`;
-            } else {
-                newWidth = defaultWidth;
+            // } else if (!defaultWidth.endsWith("px")) {
+            //     newWidth = `${defaultWidth}px`;
             }
-
-            const currentWidth = sidebar.getBoundingClientRect().width;
-
-            if (`${currentWidth}px` === newWidth) {
-                if (side === 'left') {
+            if (side === 'left') {
+                if (workspace.leftSplit.collapsed) {
+                    (sidebar as HTMLElement).style.width = newWidth;
+                    workspace.leftSplit.expand();
+                } else {
                     workspace.leftSplit.collapse();
-                } else if (side === 'right') {
-                    workspace.rightSplit.collapse();
                 }
             } else {
-                (sidebar as HTMLElement).style.width = newWidth;
-                if (side === 'left' && workspace.leftSplit.collapsed) {
-                    workspace.leftSplit.expand();
-                } else if (side === 'right' && workspace.rightSplit.collapsed) {
+                if (workspace.rightSplit.collapsed) {
+                    (sidebar as HTMLElement).style.width = newWidth;
                     workspace.rightSplit.expand();
+                } else {
+                    workspace.rightSplit.collapse();
                 }
             }
         }

@@ -42,10 +42,10 @@ Following are some examples or recommendations:
 | Decrease left sidebar width             | `Ctrl+[`               |
 | Increase right sidebar width            | `Ctrl+Alt+]`           |
 | Decrease right sidebar width            | `Ctrl+Alt+[`           |
-| Toggle left sidebar (standard width)    | `Ctrl+Shift+[`         |
-| Toggle right sidebar (standard width)   | `Ctrl+Shift+]`         |
-| Expand both sidebars to standard widths | `Ctrl+Shift+Alt+]`     |
-| Collapse both sidebars                  | `Ctrl+Shift+Alt+[`     |
+| Toggle left sidebar (standard width)    | `Ctrl+Shift+]`         |
+| Toggle right sidebar (standard width)   | `Ctrl+Alt+Shift+]`     |
+| Expand both sidebars to standard widths | `Ctrl+Shift+\`         |
+| Collapse both sidebars                  | `Ctrl+Alt+Shift+\`     |
 
 
 ### Settings
