@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-sidebar-resizer",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Adjust the sidebar sizes easily.",
 	"main": "main.js",
 	"scripts": {
