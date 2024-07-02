@@ -30,6 +30,24 @@ The following commands are available for adjusting sidebar widths:
 7. **Expand both sidebars to standard widths**: Sets both sidebars to their standard widths.
 8. **Collapse both sidebars**: Collapses both sidebars to zero width.
 
+### Hotkeys
+
+There are no hotkeys bound by default.
+The commands above can be bound to keys following your preferences through the normal Obsidian settings.
+Following are some examples or recommendations:
+
+| Command                                 | Recommended Keybinding |
+|-----------------------------------------|------------------------|
+| Increase left sidebar width             | `Ctrl+]`               |
+| Decrease left sidebar width             | `Ctrl+[`               |
+| Increase right sidebar width            | `Ctrl+Alt+]`           |
+| Decrease right sidebar width            | `Ctrl+Alt+[`           |
+| Toggle left sidebar (standard width)    | `Ctrl+Shift+[`         |
+| Toggle right sidebar (standard width)   | `Ctrl+Shift+]`         |
+| Expand both sidebars to standard widths | `Ctrl+Shift+Alt+]`     |
+| Collapse both sidebars                  | `Ctrl+Shift+Alt+[`     |
+
+
 ### Settings
 
 You can adjust the following settings in the plugin settings tab:
@@ -37,7 +55,6 @@ You can adjust the following settings in the plugin settings tab:
 1. **Width increment**: The amount to increase or decrease the sidebar width. This can be specified in pixels (e.g., "50px") or percentages (e.g., "10%").
 2. **Left sidebar standard width**: The standard width for the left sidebar. This can be specified in pixels (e.g., "100px") or percentages (e.g., "20%").
 3. **Right sidebar standard width**: The standard width for the right sidebar. This can be specified in pixels (e.g., "100px") or percentages (e.g., "20%").
-
 
 ## License
 
