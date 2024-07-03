@@ -105,12 +105,12 @@ export default class SidebarWidthPlugin extends Plugin {
             } else if (!newWidth.endsWith("px")) {
                 newWidth = `${newWidth}px`;
             }
-            (sidebar as HTMLElement).style.width = newWidth;
             if (side === 'left') {
                 workspace.leftSplit.toggle();
             } else {
                 workspace.rightSplit.toggle();
             }
+            (sidebar as HTMLElement).style.width = newWidth;
         }
     }
 
