@@ -1,6 +1,17 @@
 import { Plugin } from 'obsidian';
 import { SidebarWidthPluginSettings, DEFAULT_SETTINGS, SidebarWidthSettingTab } from './settings';
 
+function normalizeToPixels(width: string)  {
+    let widthPx = 0;
+    if (width.endsWith('%')) {
+        const percentage = parseFloat(width);
+        widthPx = window.innerWidth * (percentage / 100);
+    } else {
+        widthPx = parseFloat(width);
+    }
+    return widthPx;
+}
+
 export default class SidebarWidthPlugin extends Plugin {
     settings: SidebarWidthPluginSettings;
 
@@ -67,14 +78,7 @@ export default class SidebarWidthPlugin extends Plugin {
 
         if (sidebar) {
             const currentWidth = sidebar.getBoundingClientRect().width;
-
-            let adjustmentPx = 0;
-            if (adjustment.endsWith('%')) {
-                const percentage = parseFloat(adjustment);
-                adjustmentPx = window.innerWidth * (percentage / 100);
-            } else {
-                adjustmentPx = parseFloat(adjustment);
-            }
+            let adjustmentPx = normalizeToPixels(adjustment);
             let wVal: number = currentWidth + adjustmentPx;
             if (wVal <= 0) {
                 if (side === 'left' && !workspace.leftSplit.collapsed) {
@@ -83,12 +87,15 @@ export default class SidebarWidthPlugin extends Plugin {
                     workspace.rightSplit.collapse();
                 }
             } else {
-                (sidebar as HTMLElement).style.width = `${wVal}px`;
+                let newWidth =`${wVal}px`;
                 if (side === 'left' && workspace.leftSplit.collapsed) {
                     workspace.leftSplit.expand();
+                    newWidth = `${normalizeToPixels(this.settings.leftSidebarStandardWidth)}`;
                 } else if (side === 'right' && workspace.rightSplit.collapsed) {
                     workspace.rightSplit.expand();
+                    newWidth = `${normalizeToPixels(this.settings.rightSidebarStandardWidth)}`;
                 }
+                (sidebar as HTMLElement).style.width = newWidth;
             }
         }
     }
@@ -96,20 +103,13 @@ export default class SidebarWidthPlugin extends Plugin {
     toggleSidebarWidth(selector: string, defaultWidth: string, side: 'left' | 'right') {
         const sidebar = document.querySelector(selector);
         const workspace = this.app.workspace;
-
         if (sidebar) {
-            let newWidth: string = defaultWidth;
-            if (newWidth.endsWith('%')) {
-                const percentage = parseFloat(newWidth);
-                newWidth = `${window.innerWidth * (percentage / 100)}px`;
-            } else if (!newWidth.endsWith("px")) {
-                newWidth = `${newWidth}px`;
-            }
             if (side === 'left') {
                 workspace.leftSplit.toggle();
             } else {
                 workspace.rightSplit.toggle();
             }
+            let newWidth: string = `${normalizeToPixels(defaultWidth)}px`;
             (sidebar as HTMLElement).style.width = newWidth;
         }
     }
